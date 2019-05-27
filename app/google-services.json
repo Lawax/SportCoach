@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "476082889523",
+    "firebase_url": "https://sportcoach-43ec6.firebaseio.com",
+    "project_id": "sportcoach-43ec6",
+    "storage_bucket": "sportcoach-43ec6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476082889523:android:1f62778e4e010ce6",
+        "android_client_info": {
+          "package_name": "com.cybersporttech.sportcoach"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476082889523-geel9002n0rulc3ggl6ium0i3t5cd5o6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cybersporttech.sportcoach",
+            "certificate_hash": "3a6f6b31ee9cd2068b8d7e8b90ab506dd6c62576"
+          }
+        },
+        {
+          "client_id": "476082889523-a824shlshf94ns8idtrmv2bqq8bj43j8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEPeDKSnwMyZOiF396LxqkHJ6gAtxjxsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476082889523-a824shlshf94ns8idtrmv2bqq8bj43j8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

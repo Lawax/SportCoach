@@ -1,0 +1,126 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cybersporttech.sportcoach.controller.MainActivity">
+
+    <TextView
+        android:id="@+id/activity_main_regisname_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4065A4"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Sport Coach"
+        android:textColor="#FFFFFF"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/activity_main_regisnameplayer_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre Nom" />
+
+    <EditText
+        android:id="@+id/activity_main_regisurname_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre prénom" />
+
+    <EditText
+        android:id="@+id/activity_main_registel_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre numéro de téléphone" />
+
+    <EditText
+        android:id="@+id/activity_main_regisport_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre sport" />
+
+    <EditText
+        android:id="@+id/activity_main_regisclub__input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre nom de Club" />
+
+    <EditText
+        android:id="@+id/activity_main_regiscateg_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre catégorie" />
+
+    <EditText
+        android:id="@+id/activity_main_regisnumequipe_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Equipe numéro" />
+
+    <EditText
+        android:id="@+id/activity_main_regismail_input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre mail" />
+
+    <Button
+        android:id="@+id/activity_main_regisplayer_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="#4065A4"
+        android:hint="Joueurs cliquez ici!"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/activity_main_regiscoach_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="50dp"
+        android:background="#4065A4"
+        android:hint="Entraîneur cliquez ici"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/activity_main_regisfiche_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="#4065A4"
+        android:hint="Enregistrer la fiche"
+        android:textColor="#FFFFFF" />
+</LinearLayout>
