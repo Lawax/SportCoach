@@ -18,6 +18,7 @@
 
     <EditText
         android:id="@+id/activity_main_regisnameplayer_input"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -27,6 +28,7 @@
 
     <EditText
         android:id="@+id/activity_main_regisurname_input"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -36,6 +38,7 @@
 
     <EditText
         android:id="@+id/activity_main_registel_input"
+        android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -45,6 +48,7 @@
 
     <EditText
         android:id="@+id/activity_main_regisport_input"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -53,7 +57,8 @@
         android:hint="Saisissez votre sport" />
 
     <EditText
-        android:id="@+id/activity_main_regisclub__input"
+        android:id="@+id/activity_main_regisclub_input"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -63,6 +68,7 @@
 
     <EditText
         android:id="@+id/activity_main_regiscateg_input"
+        android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -72,6 +78,7 @@
 
     <EditText
         android:id="@+id/activity_main_regisnumequipe_input"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
@@ -81,12 +88,22 @@
 
     <EditText
         android:id="@+id/activity_main_regismail_input"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Saisissez votre mail" />
+    <EditText
+        android:id="@+id/activity_main_regisPass_input"
+        android:inputType="textPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="Saisissez votre mot de passe"/>
 
     <Button
         android:id="@+id/activity_main_regisplayer_btn"
@@ -97,7 +114,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
         android:background="#4065A4"
-        android:hint="Joueurs cliquez ici!"
+        android:hint="Enregistrer un joueur"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
 
@@ -110,17 +127,7 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="50dp"
         android:background="#4065A4"
-        android:hint="Entraîneur cliquez ici"
+        android:hint="Enregistrer un entraîneur"
         android:textColor="#FFFFFF" />
 
-    <Button
-        android:id="@+id/activity_main_regisfiche_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:background="#4065A4"
-        android:hint="Enregistrer la fiche"
-        android:textColor="#FFFFFF" />
 </LinearLayout>
