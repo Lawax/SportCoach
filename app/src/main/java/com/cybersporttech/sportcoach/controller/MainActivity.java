@@ -19,14 +19,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
+
 
 
 public class MainActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
 
     private TextView mGreetingText;
     private ProgressBar mProgressBar;
@@ -83,17 +80,32 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mProgressBar.setVisibility(View.VISIBLE);
-                setMessage();
+                //setMessage(); appel de la méthode set message BDD à transvaser dans le main register
+                firebaseAuth.createUserWithEmailAndPassword(mEmailInput.getText().toString(),
+                        mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(MainActivity.this, "Compte enregistré", Toast.LENGTH_LONG).show();
+                        } else {
+                            Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                });
+
                 Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(registerActivity);
                 //Ce bouton permet à l'utilisateur d'arriver sur la page d'enregistrement
             }
 
-            public void setMessage() {
-                String str = mEmailInput.getText().toString().trim();
-                myRef.setValue(str); // zone de saisie destinée à être enregistrée dans la bdd Firebase
+
+        });
+
+        mConnexionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, MenuActivity.class ));
             }
-
-
         });
     }}
