@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText mEmailInput;
     private Button mRegisterButton;
     private Button mConnexionButton;
+
     FirebaseAuth firebaseAuth;
 
 
@@ -85,9 +86,9 @@ public class MainActivity extends AppCompatActivity {
                         mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                        if (task.isSuccessful()) { mProgressBar.setVisibility(View.GONE);
                             Toast.makeText(MainActivity.this, "Compte enregistré", Toast.LENGTH_LONG).show();
-                        } else {
+                        } else { mProgressBar.setVisibility(View.GONE);
                             Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
