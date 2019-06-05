@@ -29,6 +29,8 @@ public class MenuActivity extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
         mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+
 
 
         mSportCoach = findViewById(R.id.activity_nom_appli_text) ;
@@ -56,7 +58,7 @@ public class MenuActivity extends AppCompatActivity {
         mdeconnexion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+            FirebaseAuth.getInstance().signOut();
             }
         });
     }
