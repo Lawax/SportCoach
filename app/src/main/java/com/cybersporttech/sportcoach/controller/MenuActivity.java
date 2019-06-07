@@ -59,6 +59,11 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
             FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(MenuActivity.this, MainActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            //Disconnection from the app, and back button action cancelling
             }
         });
     }

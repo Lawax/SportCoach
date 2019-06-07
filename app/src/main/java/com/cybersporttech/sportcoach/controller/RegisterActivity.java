@@ -16,6 +16,7 @@ public class RegisterActivity extends AppCompatActivity {
     DatabaseReference myRef = database.getReference("message");
 
     private TextView mmain_regisname_input;
+    private TextView mmain_regismail;
     private EditText mmain_regisnameplayer_input;
     private EditText mmain_regisurname_input;
     private EditText mmain_registel_input;
@@ -25,7 +26,6 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText mmain_regisnumequipe_input;
     private Button mmain_regisplayer_btn;
     private Button mmain_regiscoach_btn;
-    // MAIL ET PASS a récuperer du menu
 
 
     @Override
@@ -40,8 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
         mmain_regisclub_input = findViewById(R.id.activity_main_regisclub_input);
         mmain_regiscateg_input = findViewById(R.id.activity_main_regiscateg_input);
         mmain_regisnumequipe_input = findViewById(R.id.activity_main_regisnumequipe_input);
-        //mEmailInput = findViewById(R.id.activity_main_regismail_input);
-        //mPassword = findViewById(R.id.activity_main_regisPass_input);
+        mmain_regismail= findViewById(R.id.activity_regis_mail);
         mmain_regisplayer_btn = findViewById(R.id.activity_main_regisplayer_btn);
         mmain_regiscoach_btn = findViewById(R.id.activity_main_regiscoach_btn);
 
