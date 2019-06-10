@@ -16,7 +16,8 @@ public class Home extends Application {
 
         if (firebaseUser != null){
             startActivity(new Intent(Home.this, MenuActivity.class));
-            // If the user was still connected when he had quit the app, then he'll go directly to the main
+            // If the user was still connected when he had quit the app, then he'll
+            // go directly to the main without setting login/password
         }
     }
 }

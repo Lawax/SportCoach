@@ -6,7 +6,7 @@
     tools:context="com.cybersporttech.sportcoach.controller.MainActivity">
 
     <TextView
-        android:id="@+id/activity_main_regisname_input"
+        android:id="@+id/activity_main_appName_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#4065A4"
@@ -15,14 +15,22 @@
         android:text="Sport Coach"
         android:textColor="#FFFFFF"
         android:textSize="25sp" />
-    <TextView
+
+
+    <EditText
         android:id="@+id/activity_regis_mail"
+        android:inputType="textEmailAddress"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="39dp"
         android:layout_gravity="end"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:text="" />
+        android:layout_marginEnd="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Saissisez les champs pour finaliser l'inscription"
+        android:textAlignment="center" />
 
     <EditText
         android:id="@+id/activity_main_regisnameplayer_input"

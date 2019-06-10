@@ -55,6 +55,7 @@
         android:layout_marginRight="20dp"
         android:padding="5dp"
         android:text="S'inscrire" />
+
     <Button
         android:id="@+id/activity_main_connexion_btn"
         android:layout_width="wrap_content"

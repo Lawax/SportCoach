@@ -19,7 +19,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
     private Button mConnexionButton;
 
     FirebaseAuth firebaseAuth;
-
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -58,16 +58,18 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                mRegisterButton.setEnabled (s.toString().length()!=1);//activation du bouton dès la saisie d'un caractère
-
+                mRegisterButton.setEnabled (s.toString().length()!=1);
+                //grey button until typing on the keyboard
             }
 
             @Override
             public void afterTextChanged(Editable s) {
 
+
             }
 
         });
+
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mProgressBar.setVisibility(View.VISIBLE);
-                //setMessage(); appel de la méthode set message BDD à transvaser dans le main register
                 firebaseAuth.createUserWithEmailAndPassword(mEmailInput.getText().toString(),
                         mPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -98,10 +99,22 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(registerActivity);
+
                 //Ce bouton permet à l'utilisateur d'arriver sur la page d'enregistrement
             }
+        });
 
+        mRegisterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mEmailInput = findViewById(R.id.activity_main_email_input);
 
+                Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
+                myIntent.putExtra ("data",mEmailInput.getText().toString());
+                startActivity(myIntent);
+                // passing data to register activity, il manque la partie sur register
+
+            }
         });
 
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
@@ -111,4 +124,18 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-    }}
+        mConnexionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MainActivity.this, MenuActivity.class);
+                myIntent.putExtra ("data",mEmailInput.getText().toString());
+                startActivity(myIntent);
+                // passing data to Menu activity
+            }
+        });
+
+
+    }
+
+}
+
