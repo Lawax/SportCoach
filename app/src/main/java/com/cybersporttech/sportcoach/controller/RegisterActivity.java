@@ -58,6 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
+
     }
 
 // Ensuite PAR LE BIAIS du bouton d'enregistement en bas d'un membre, il faudra placer le set message pour enregistrer dans la BDD

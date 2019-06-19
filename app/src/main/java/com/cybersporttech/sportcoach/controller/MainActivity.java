@@ -21,10 +21,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
-
 
     private TextView mGreetingText;
     private ProgressBar mProgressBar;
@@ -33,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mRegisterButton;
     private Button mConnexionButton;
 
-    FirebaseAuth firebaseAuth;
+    private FirebaseAuth firebaseAuth;
 
 
     @RequiresApi(api = Build.VERSION_CODES.M)
@@ -50,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         mRegisterButton.setEnabled(false);
 
+
         mEmailInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -65,19 +63,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable s) {
 
-
             }
 
-        });
-
-        mConnexionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent menuActivity = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(menuActivity);
-                //Ce bouton permet à l'utilisateur d'arriver sur la page menu
-
-            }
         });
 
         mRegisterButton.setOnClickListener(new View.OnClickListener() {
@@ -97,30 +84,26 @@ public class MainActivity extends AppCompatActivity {
 
                 });
 
-                Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
-                startActivity(registerActivity);
 
-                //Ce bouton permet à l'utilisateur d'arriver sur la page d'enregistrement
-            }
-        });
+               /*{
+                   Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
+                   startActivity(registerActivity);
+                   //Register activity access button
 
-        mRegisterButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mEmailInput = findViewById(R.id.activity_main_email_input);
-
-                Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
-                myIntent.putExtra ("data",mEmailInput.getText().toString());
-                startActivity(myIntent);
-                // passing data to register activity, il manque la partie sur register
-
+                }
+                    /*Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
+                    myIntent.putExtra ("data",mEmailInput.getText().toString());
+                    startActivity(myIntent);
+                    // passing data to register activity
             }
         });
 
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, MenuActivity.class ));
+                Intent menuActivity = new Intent(MainActivity.this, MenuActivity.class);
+                startActivity(menuActivity);
+                //Menu activity access button*/
             }
         });
 
@@ -132,10 +115,9 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(myIntent);
                 // passing data to Menu activity
             }
+
         });
 
-
     }
-
 }
 

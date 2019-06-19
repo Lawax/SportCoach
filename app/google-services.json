@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "476082889523-e27ho1imu5p14q5q3nnhjfmgf6adbe1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cybersporttech.sportcoach",
+            "certificate_hash": "53075343b7ba0a27e9046e170bf55eda3fff120b"
+          }
+        },
+        {
           "client_id": "476082889523-geel9002n0rulc3ggl6ium0i3t5cd5o6.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -2,10 +2,25 @@ package com.cybersporttech.sportcoach.model;
 
 
 
+
+
 public class Membre {
 
-    public Membre(String nom, String prenom,int telephone, String sportPratique, String nomClub,
-                  String categorie, int equipeNumero, String mail, String statut) {
+
+    private String nom;
+    private String prenom;
+    private int telephone;
+    private String sportPratique;
+    private String nomClub;
+    private int categorie;
+    private int equipeNumero;
+    private String mail;
+    private String statut;
+
+
+
+
+    public Membre(String nom, String prenom, int telephone, String sportPratique,  String nomClub, int categorie, int equipeNumero, String mail, String statut) {
         this.nom = nom;
         this.prenom = prenom;
         this.telephone = telephone;
@@ -56,13 +71,15 @@ public class Membre {
     public void setNomClub(String nomClub) {
         this.nomClub = nomClub;
     }
-    public String getCategorie() {
-        return categorie;
+
+    public int getCategorie() {
+        return categorie;   //Il faudra rajouter un sysout avec le U devant
     }
 
-    public void setCategorie(String categorie) {
+    public void setCategorie(int categorie) {
         this.categorie = categorie;
     }
+
     public int getequipeNumero (){
         return equipeNumero;
     }
@@ -86,14 +103,6 @@ public class Membre {
         this.statut = statut;
     }
 
-    private String nom;
-    private String prenom;
-    private int telephone;
-    private String sportPratique;
-    private String nomClub;
-    private String categorie;
-    private int equipeNumero;
-    private String mail;
-    private String statut;
+
 
 }
