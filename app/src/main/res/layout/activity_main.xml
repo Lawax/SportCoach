@@ -5,13 +5,21 @@
     android:orientation="vertical"
     tools:context="com.cybersporttech.sportcoach.controller.MainActivity">
 
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="167dp"
+        android:background="@drawable/photoapp"
+        android:orientation="vertical" />
+
     <TextView
         android:id="@+id/activity_main_mGreetingText"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#4065A4"
+        android:layout_height="55dp"
+        android:background="#51C57F"
         android:text="Bienvenue sur Sport Coach!"
         android:textColor="#FFFFFF"
+        android:textAlignment="center"
         android:textSize="24sp" />
 
 
@@ -25,16 +33,17 @@
             android:hint="Entrez votre email"
             android:inputType="text|textEmailAddress"
             />
+
     <EditText
         android:id="@+id/activity_main_password"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="61dp"
         android:layout_gravity="end"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
-        android:inputType="textPassword"
-        android:hint="Mot de Passe" />
+        android:hint="Mot de Passe"
+        android:inputType="textPassword" />
 
     <ProgressBar
         android:id="@+id/main_progressBar"
@@ -65,5 +74,7 @@
         android:layout_marginRight="20dp"
         android:padding="5dp"
         android:text="Connexion" />
+
+
 
 </LinearLayout>
