@@ -3,6 +3,9 @@ package com.cybersporttech.sportcoach.model.Member;
 
 import com.cybersporttech.sportcoach.model.Club;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class Membre {
 
 

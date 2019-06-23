@@ -2,26 +2,30 @@ package com.cybersporttech.sportcoach.model.Convoc;
 
 
 import com.cybersporttech.sportcoach.model.Club;
+import com.cybersporttech.sportcoach.model.Member.Joueur;
 
 import java.util.Date;
 
-    public class Convocation{
+    public class Convocation {
 
         private Club club;
         private Lieu lieu;
         private Date date;
         private String evenement;
+        private Joueur joueur;
 
 
-            public Convocation( Club club, Lieu lieu, Date date, String evenement) {
+        public Convocation(Club club, Lieu lieu, Date date, String evenement, Joueur joueur) {
 
-                this.club=club;
-                this.lieu = lieu;
-                this.date = date;
-                this.evenement = evenement;
+            this.club = club;
+            this.lieu = lieu;
+            this.date = date;
+            this.evenement = evenement;
+            this.joueur = joueur;
 
 
-    }
+        }
+
         public Club getClub() {
             return club;
         }
@@ -52,6 +56,10 @@ import java.util.Date;
 
         public void setEvenement(String evenement) {
             this.evenement = evenement;
+        }
+
+        public Joueur getJoueur() {
+            return joueur;
         }
     }
 
