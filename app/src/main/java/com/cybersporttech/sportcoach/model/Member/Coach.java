@@ -4,8 +4,8 @@ import com.cybersporttech.sportcoach.model.Club;
 
 public class Coach extends Membre {
 
-    public Coach(Club club, String nom, String prenom, int telephone, int categorie, int equipeNumero, String mail, String statut) {
-        super(club, nom, prenom, telephone, categorie, equipeNumero, mail, statut);
+    public Coach(int ident , String nom, String prenom, Club club, int telephone, String mail, int categorie,  String statut) {
+        super(ident, nom, prenom , club ,telephone,mail, categorie , statut );
     }
 
     @Override

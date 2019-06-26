@@ -63,6 +63,21 @@ public class MenuActivity extends AppCompatActivity {
                 // passing data to Register activity
             }
         });
+        mConsulterUneConvocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent= new Intent(MenuActivity.this, ReadConvocationActivity.class);
+                startActivity (myIntent);
+            }
+        });
+
+        mCreerUneConvocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MenuActivity.this, ConvocationActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
 
         mdeconnexion.setOnClickListener(new View.OnClickListener() {

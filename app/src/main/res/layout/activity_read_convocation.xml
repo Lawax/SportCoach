@@ -16,79 +16,76 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
-        android:text="Création Convocation">
+        tools:text="Convocation">
 
     </TextView>
 
-    <EditText
-        android:id="@+id/sportPratique_txt"
+    <TextView
+        android:id="@+id/sportPratique_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Sport pratiqué"
+        android:hint="sport pratiqué"
         />
 
-    <EditText
-        android:id="@+id/nomduClub_txt"
+    <TextView
+        android:id="@+id/nomduClub_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Nom du club"/>
+        android:hint="Nom de club"
+        />
 
-    <EditText
-        android:id="@+id/categories_txt"
+    <TextView
+        android:id="@+id/categories_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Categorie et précisez le numéro d'équipe" />
+        android:hint="Categorie et numéro d'équipe" />
 
-    <EditText
-        android:id="@+id/lieu_txt"
+    <TextView
+        android:id="@+id/lieu_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="Lieu" />
 
-    <EditText
-        android:id="@+id/date_txt"
+    <TextView
+        android:id="@+id/date_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="text|datetime"
-        android:hint="Date" />
+        android:hint="Date et heure" />
 
-    <EditText
-        android:id="@+id/evenement_txt"
+    <TextView
+        android:id="@+id/evenement_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="text"
         android:hint="Précisez : match, plateau ou tournoi" />
 
-    <EditText
-        android:id="@+id/ListeJoueurs_txt"
+    <TextView
+        android:id="@+id/ListeJoueurs_txtR"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_weight="3"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="Liste des joueurs"/>
 
-    <Button
-        android:id="@+id/Validation_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="94dp"
         android:layout_gravity="center"
-        android:hint="Valider"/>
+        android:textAlignment="center"
+        android:autoSizeTextType="uniform"
+        android:ems="20"
+        android:text="Que les meilleurs gagnent!" />
 
 </LinearLayout>

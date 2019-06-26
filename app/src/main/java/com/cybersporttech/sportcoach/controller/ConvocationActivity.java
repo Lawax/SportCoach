@@ -2,13 +2,11 @@ package com.cybersporttech.sportcoach.controller;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
 import com.cybersporttech.sportcoach.R;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ConvocationActivity extends AppCompatActivity {
 
@@ -20,8 +18,7 @@ public class ConvocationActivity extends AppCompatActivity {
     private EditText mDate;
     private EditText mEvenement;
     private EditText mListJoueurs;
-    private Button   mValidation;
-
+    private Button mValidation;
 
 
     @Override
@@ -38,5 +35,71 @@ public class ConvocationActivity extends AppCompatActivity {
         mListJoueurs = findViewById(R.id.ListeJoueurs_txt);
         mValidation = findViewById(R.id.Validation_btn);
 
+
+
+        mValidation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //interaction with db by php
+            }
+        });
     }
+
+    public EditText getmSportPratique() {
+        return mSportPratique;
+    }
+
+    public void setmSportPratique(EditText mSportPratique) {
+        this.mSportPratique = mSportPratique;
+    }
+
+    public EditText getmNomdeClub() {
+        return mNomdeClub;
+    }
+
+    public void setmNomdeClub(EditText mNomdeClub) {
+        this.mNomdeClub = mNomdeClub;
+    }
+
+    public EditText getmCategNumEquipe() {
+        return mCategNumEquipe;
+    }
+
+    public void setmCategNumEquipe(EditText mCategNumEquipe) {
+        this.mCategNumEquipe = mCategNumEquipe;
+    }
+
+    public EditText getmLieu() {
+        return mLieu;
+    }
+
+    public void setmLieu(EditText mLieu) {
+        this.mLieu = mLieu;
+    }
+
+    public EditText getmDate() {
+        return mDate;
+    }
+
+    public void setmDate(EditText mDate) {
+        this.mDate = mDate;
+    }
+
+    public EditText getmEvenement() {
+        return mEvenement;
+    }
+
+    public void setmEvenement(EditText mEvenement) {
+        this.mEvenement = mEvenement;
+    }
+
+    public EditText getmListJoueurs() {
+        return mListJoueurs;
+    }
+
+    public void setmListJoueurs(EditText mListJoueurs) {
+        this.mListJoueurs = mListJoueurs;
+    }
+
 }
+

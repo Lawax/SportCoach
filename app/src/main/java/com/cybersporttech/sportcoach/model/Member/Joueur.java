@@ -5,8 +5,8 @@ import com.cybersporttech.sportcoach.model.Club;
 public class Joueur extends Membre {
 
 
-    public Joueur(Club club, String nom, String prenom, int telephone, int categorie, int equipeNumero, String mail, String statut) {
-        super(club, nom, prenom, telephone, categorie, equipeNumero, mail, statut);
+    public Joueur(int ident, String nom, String prenom, Club club ,int telephone, String mail, int categorie,  String statut) {
+        super(ident,nom, prenom, club, telephone, mail, categorie,  statut);
     }
 
     @Override
