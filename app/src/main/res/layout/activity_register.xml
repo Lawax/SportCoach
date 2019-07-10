@@ -51,27 +51,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Saisissez votre prénom" />
-
-    <EditText
-        android:id="@+id/activity_main_registel_input"
-        android:inputType="phone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="Saisissez votre numéro de téléphone" />
-
-    <EditText
-        android:id="@+id/activity_main_regisport_input"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:hint="Saisissez votre sport" />
-
     <EditText
         android:id="@+id/activity_main_regisclub_input"
         android:inputType="text"
@@ -81,7 +60,6 @@
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
         android:hint="Saisissez votre nom de Club" />
-
     <EditText
         android:id="@+id/activity_main_regiscateg_input"
         android:inputType="text"
@@ -93,18 +71,18 @@
         android:hint="Saisissez votre catégorie" />
 
     <EditText
-        android:id="@+id/activity_main_regisnumequipe_input"
-        android:inputType="number"
+        android:id="@+id/activity_main_registel_input"
+        android:inputType="phone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
         android:layout_marginStart="20dp"
         android:layout_marginEnd="20dp"
-        android:hint="Equipe numéro" />
+        android:hint="Saisissez votre numéro de téléphone" />
 
     <Button
         android:id="@+id/activity_main_regisplayer_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
@@ -117,7 +95,7 @@
 
     <Button
         android:id="@+id/activity_main_regiscoach_btn"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"

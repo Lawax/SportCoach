@@ -1,36 +1,40 @@
 package com.cybersporttech.sportcoach.model.Member;
 
 
-import com.cybersporttech.sportcoach.model.Club;
+
+public class Membre {
 
 
-public abstract class Membre {
 
-
-    private int ident;
+    private String uid;
     private String nom;
     private String prenom;
-    private Club club;
+    private String club;
+    private int categorie;
     private int telephone;
     private String mail;
-    private int categorie;
-    private String statut;
+    private boolean isCoach;
 
-
-    public Membre(int ident,String nom, String prenom, Club club,int telephone,String mail, int categorie, String statut) {
-
-        this.ident= ident;
+    public Membre(String uid,String nom, String prenom, String club, int categorie, int telephone, String mail, boolean isCoach) {
+        this.uid = uid;
         this.nom = nom;
         this.prenom = prenom;
-        this.club= club;
+        this.club = club;
+        this.categorie = categorie;
         this.telephone = telephone;
         this.mail = mail;
-        this.categorie = categorie;
-        this.statut = statut;
+        this.isCoach = false;
     }
 
-    public int getIdent() {
-        return ident;
+
+
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getNom() {
@@ -48,12 +52,21 @@ public abstract class Membre {
     public void setPrenom(String prenom) {
         this.prenom = prenom;
     }
-    public Club getClub() {
+
+    public String getClub() {
         return club;
     }
 
-    public void setClub(Club club) {
+    public void setClub(String club) {
         this.club = club;
+    }
+
+    public int getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(int categorie) {
+        this.categorie = categorie;
     }
 
     public int getTelephone() {
@@ -63,6 +76,7 @@ public abstract class Membre {
     public void setTelephone(int telephone) {
         this.telephone = telephone;
     }
+
     public String getMail() {
         return mail;
     }
@@ -70,28 +84,20 @@ public abstract class Membre {
     public void setMail(String mail) {
         this.mail = mail;
     }
-    public void setCategorie (int categorie){
-        this.categorie = categorie;
-    }
-    public int getCategorie() {
-        return categorie;
+
+    public boolean isIsCoach() {
+        return isCoach;
     }
 
-    public String getStatut() {
-        return statut;
-    }
-    public void setStatut(String statut) {
-        this.statut = statut;
+    public void setIscoach(boolean isCoach) {
+        this.isCoach = isCoach;
     }
 
-
-
-
-
-
-    public abstract void lireUneConvocation ();
+    public void lireUneConvocation (){
 
     }
+
+}
 
 
 

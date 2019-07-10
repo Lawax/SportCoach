@@ -17,18 +17,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         tools:text="Convocation">
-
     </TextView>
-
-    <TextView
-        android:id="@+id/sportPratique_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="sport pratiqué"
-        />
-
     <TextView
         android:id="@+id/nomduClub_txtR"
         android:layout_width="match_parent"
@@ -61,14 +50,6 @@
         android:layout_weight="3"
         android:ems="10"
         android:hint="Date et heure" />
-
-    <TextView
-        android:id="@+id/evenement_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Précisez : match, plateau ou tournoi" />
 
     <TextView
         android:id="@+id/ListeJoueurs_txtR"

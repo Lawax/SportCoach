@@ -1,65 +1,63 @@
 package com.cybersporttech.sportcoach.model.Convoc;
 
 
-import com.cybersporttech.sportcoach.model.Club;
-import com.cybersporttech.sportcoach.model.Member.Joueur;
-
 import java.util.Date;
 
-    public class Convocation {
+public class Convocation {
 
-        private Club club;
-        private Lieu lieu;
-        private Date date;
-        private String evenement;
-        private Joueur joueur;
-
-
-        public Convocation(Club club, Lieu lieu, Date date, String evenement, Joueur joueur) {
-
-            this.club = club;
-            this.lieu = lieu;
-            this.date = date;
-            this.evenement = evenement;
-            this.joueur = joueur;
+    private String club;
+    private int categorie;
+    private String lieu;
+    private Date date;
+    private String listjoueurs;
 
 
-        }
-
-        public Club getClub() {
-            return club;
-        }
-
-        public void setClub(Club club) {
-            this.club = club;
-        }
-
-        public Lieu getLieu() {
-            return lieu;
-        }
-
-        public void setLieu(Lieu lieu) {
-            this.lieu = lieu;
-        }
-
-        public Date getDate() {
-            return date;
-        }
-
-        public void setDate(Date date) {
-            this.date = date;
-        }
-
-        public String getEvenement() {
-            return evenement;
-        }
-
-        public void setEvenement(String evenement) {
-            this.evenement = evenement;
-        }
-
-        public Joueur getJoueur() {
-            return joueur;
-        }
+    public Convocation(String club, int categorie, String lieu, Date date, String listjoueurs) {
+        this.club = club;
+        this.categorie = categorie;
+        this.lieu = lieu;
+        this.date = date;
+        this.listjoueurs = listjoueurs;
     }
+
+    public String getClub() {
+        return club;
+    }
+
+    public void setClub(String club) {
+        this.club = club;
+    }
+
+    public int getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(int categorie) {
+        this.categorie = categorie;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public void setLieu(String lieu) {
+        this.lieu = lieu;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public String getListjoueurs() {
+        return listjoueurs;
+    }
+
+    public void setListjoueurs(String listjoueurs) {
+        this.listjoueurs = listjoueurs;
+    }
+}
 
