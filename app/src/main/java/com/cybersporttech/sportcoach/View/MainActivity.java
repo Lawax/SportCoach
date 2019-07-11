@@ -1,4 +1,4 @@
-package com.cybersporttech.sportcoach.controller;
+package com.cybersporttech.sportcoach.View;
 
 import android.content.Intent;
 import android.os.Build;
@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mConnexionButton;
 
     private FirebaseAuth firebaseAuth;
-
+// implementation 'com.firebaseui:firebase-ui-auth:3.1.3' issue fixed with 5.0.0 version
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override

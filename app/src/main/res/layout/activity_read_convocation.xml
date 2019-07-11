@@ -3,7 +3,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context="com.cybersporttech.sportcoach.controller.MainActivity">
+    tools:context="com.cybersporttech.sportcoach.View.MainActivity">
 
     <TextView
         android:id="@+id/activity_nom_appli_text"

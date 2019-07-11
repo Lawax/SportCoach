@@ -1,10 +1,11 @@
-package com.cybersporttech.sportcoach.controller;
+package com.cybersporttech.sportcoach.View;
+
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
+
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,8 +31,10 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mmain_regisplayer_btn;
     private Button mmain_regiscoach_btn;
 
+
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +56,18 @@ public class RegisterActivity extends AppCompatActivity {
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
 
-    }
-
 // Ensuite PAR LE BIAIS du bouton d'enregistement en bas d'un membre, il faudra placer le set message pour enregistrer dans la BDD
 
-    public void setMessage() {
+
+    }
+    public void setMessage (){
         String str = mmain_regismail_input.getText().toString().trim();
         myRef.setValue(str);
-        //zone de saisie destinée à être enregistrée dans la bdd sur Firebase
-    }}
+        /* zone de saisie destinée à être enregistrée dans la bdd sur Firebase */
 
+    }
+
+
+
+
+}
