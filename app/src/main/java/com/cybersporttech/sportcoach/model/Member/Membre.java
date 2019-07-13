@@ -1,6 +1,13 @@
 package com.cybersporttech.sportcoach.model.Member;
 
 
+import android.text.TextUtils;
+
+import com.cybersporttech.sportcoach.API.UserHelper;
+import com.cybersporttech.sportcoach.R;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.auth.User;
 
 public class Membre {
 
@@ -85,17 +92,39 @@ public class Membre {
         this.mail = mail;
     }
 
-    public boolean isIsCoach() {
+    public boolean isCoach() {
         return isCoach;
     }
 
-    public void setIscoach(boolean isCoach) {
+    public void setisCoach(boolean isCoach) {
         this.isCoach = isCoach;
     }
 
     public void lireUneConvocation (){
 
     }
+
+    private void updateUIWhenCreating(){
+
+        if (this.getCurrentUser() != null){
+
+
+
+
+            // 7 - Get data from Firestore (isCoach & Username)
+            UserHelper.getMembre(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                @Override
+                public void onSuccess(DocumentSnapshot documentSnapshot) {
+                    User currentUser = documentSnapshot.toObject(User.class);
+                    String nom = TextUtils.isEmpty(currentUser.getNom()) ? getString(R.string.info_no_username_found) : currentUser.getNom();
+
+                    nom_user.setText(nom);
+                }
+            });
+        }
+    }
+
+
 
 }
 

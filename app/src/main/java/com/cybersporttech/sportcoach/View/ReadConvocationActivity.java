@@ -2,11 +2,15 @@ package com.cybersporttech.sportcoach.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.cybersporttech.sportcoach.API.UserHelper;
 import com.cybersporttech.sportcoach.R;
-
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.auth.User;
 
 
 public class ReadConvocationActivity extends AppCompatActivity {
@@ -69,7 +73,6 @@ public class ReadConvocationActivity extends AppCompatActivity {
     public void setListeJoueursResp(TextView listeJoueursResp) {
         this.listeJoueursResp = listeJoueursResp;
     }
-
 
 }
 

@@ -9,7 +9,7 @@ import com.google.firebase.firestore.auth.User;
 
 public class UserHelper {
 
-    private static final String COLLECTION_NAME = "membre";
+    private static final String COLLECTION_NAME = "membres";
 
     // --- COLLECTION REFERENCE ---
 
@@ -32,12 +32,17 @@ public class UserHelper {
 
     // --- UPDATE ---
 
-    public static Task<Void> updateMembrename(String uid, String nom) {
-        return UserHelper.getMembreCollection().document(uid).update("nom", nom);
+    public static Task<Void> updateMembreClub(String uid, String club) {
+        return UserHelper.getMembreCollection().document(uid).update("club", club);
     }
-
-    public static Task<Void> updateIsCoach(String uid, Boolean iscoach) {
-        return UserHelper.getMembreCollection().document(uid).update("iscoach", iscoach);
+    public static Task<Void> updateMembreCategorie(String uid, int categorie){
+        return UserHelper.getMembreCollection().document(uid).update("categorie",categorie);
+    }
+    public static Task<Void> updateMembreTelephone(String uid, int telephone) {
+        return UserHelper.getMembreCollection().document(uid).update("telephone", telephone);
+    }
+    public static Task<Void> updateIsCoach(String uid, Boolean isCoach) {
+        return UserHelper.getMembreCollection().document(uid).update("isCoach", isCoach);
     }
 
     // --- DELETE ---

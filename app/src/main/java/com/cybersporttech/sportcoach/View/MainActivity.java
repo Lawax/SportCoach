@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import com.cybersporttech.sportcoach.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private Button mConnexionButton;
 
     private FirebaseAuth firebaseAuth;
-// implementation 'com.firebaseui:firebase-ui-auth:3.1.3' issue fixed with 5.0.0 version
+
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
