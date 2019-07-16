@@ -7,7 +7,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
-public class UserHelper {
+/*public class UserHelper {
 
     private static final String COLLECTION_NAME = "membres";
 
@@ -51,4 +51,4 @@ public class UserHelper {
         return UserHelper.getMembreCollection().document(uid).delete();
     }
 
-}
+}*/

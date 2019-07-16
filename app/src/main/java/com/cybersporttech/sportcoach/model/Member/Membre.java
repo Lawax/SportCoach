@@ -1,48 +1,38 @@
 package com.cybersporttech.sportcoach.model.Member;
 
 
-import android.text.TextUtils;
-
-import com.cybersporttech.sportcoach.API.UserHelper;
-import com.cybersporttech.sportcoach.R;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.auth.User;
-
 public class Membre {
 
 
 
-    private String uid;
+
     private String nom;
     private String prenom;
     private String club;
-    private int categorie;
-    private int telephone;
-    private String mail;
-    private boolean isCoach;
+    private String categorie;
+    private String telephone;
 
-    public Membre(String uid,String nom, String prenom, String club, int categorie, int telephone, String mail, boolean isCoach) {
-        this.uid = uid;
+
+
+
+
+
+
+
+
+
+
+    public Membre(String nom, String prenom, String club, String categorie, String telephone) {
+
         this.nom = nom;
         this.prenom = prenom;
         this.club = club;
         this.categorie = categorie;
         this.telephone = telephone;
-        this.mail = mail;
-        this.isCoach = false;
+
     }
 
 
-
-
-    public String getUid() {
-        return uid;
-    }
-
-    public void setUid(String uid) {
-        this.uid = uid;
-    }
 
     public String getNom() {
         return nom;
@@ -68,37 +58,20 @@ public class Membre {
         this.club = club;
     }
 
-    public int getCategorie() {
+    public String getCategorie() {
         return categorie;
     }
-
-    public void setCategorie(int categorie) {
+    public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
-    public int getTelephone() {
+    public String getTelephone() {
         return telephone;
     }
-
-    public void setTelephone(int telephone) {
+    public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public boolean isCoach() {
-        return isCoach;
-    }
-
-    public void setisCoach(boolean isCoach) {
-        this.isCoach = isCoach;
-    }
 
     public void lireUneConvocation (){
 

@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.cybersporttech.sportcoach.API.UserHelper;
+
 import com.cybersporttech.sportcoach.R;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;

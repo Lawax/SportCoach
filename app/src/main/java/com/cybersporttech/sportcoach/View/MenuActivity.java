@@ -11,7 +11,7 @@ import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-import com.cybersporttech.sportcoach.API.UserHelper;
+
 import com.cybersporttech.sportcoach.R;
 import com.cybersporttech.sportcoach.controller.BaseActivity;
 import com.google.android.gms.tasks.OnSuccessListener;

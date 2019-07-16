@@ -13,7 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-import com.cybersporttech.sportcoach.API.UserHelper;
+
+import com.cybersporttech.sportcoach.model.Member.Membre;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -22,16 +23,16 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import com.cybersporttech.sportcoach.R;
+import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
-import java.util.HashMap;
-import java.util.Map;
 
 
-public class RegisterActivity extends AppCompatActivity {
+
+public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
 
     // Realtime db FirebaseDatabase database = FirebaseDatabase.getInstance();
     //Realtime db DatabaseReference myRef = database.getReference("message");
@@ -47,14 +48,13 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mmain_regiscoach_btn;
 
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();
+    private FirebaseFirestore db;
 
     // Creating identifier to identify REST REQUEST (Update username)
-    private static final int UPDATE_USERNAME = 30;
+    //private static final int UPDATE_USERNAME = 30;
 
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
-
 
 
     @Override
@@ -70,80 +70,73 @@ public class RegisterActivity extends AppCompatActivity {
         mmain_regisplayer_btn = findViewById(R.id.activity_main_regisplayer_btn);
         mmain_regiscoach_btn = findViewById(R.id.activity_main_regiscoach_btn);
 
+        findViewById(R.id.activity_main_regisplayer_btn).setOnClickListener(this);
+
         //mmain_regismail_input.setText(getIntent().getExtras().getString("data"));
 
+        db = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         //setMessage();
+    }
+        private boolean validateInputs(String nom, String prenom, String club) {
 
-        //ajout test
-        Map<String,Object> newMembre = new HashMap<>();
-        newMembre.put ("Coachs", "");
-
-        db.collection("membre").document("1")
-                .set(newMembre)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(RegisterActivity.this,"Enregistré", Toast.LENGTH_SHORT);
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.d("Error",e.getMessage());
-                    }
-                });
-
-        mmain_regisnameplayer_input.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
+            if (nom.isEmpty()) {
+                mmain_regisnameplayer_input.setError("Nom?");
+                mmain_regisnameplayer_input.requestFocus();
+                return true;
             }
-        });
 
-
-
-// Ensuite PAR LE BIAIS du bouton d'enregistement en bas d'un membre, il faudra placer le set message pour enregistrer dans la BDD
-
-        mmain_regisplayer_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-
-                finish();
-                Intent myIntent = new Intent(RegisterActivity.this, MenuActivity.class);
-                startActivity(myIntent);
+            if (prenom.isEmpty()) {
+                mmain_regisurname_input.setError("prenom?");
+                mmain_regisurname_input.requestFocus();
+                return true;
             }
-        });
 
-    }
-    public void setMessage (){
-
-        //String str = mmain_regisnameplayer_input.getText().toString().trim();
-       // myRef.setValue(str);
-
-
-
-        /* zone de saisie destinée à être enregistrée dans la bdd sur Firebase */
-
-    }
-
-    // ERROR HANDLER
-    // --------------------
-
-    private OnFailureListener onFailureListener(){
-        return new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), getString(R.string.fui_error_unknown), Toast.LENGTH_LONG).show();
+            if (club.isEmpty()) {
+                mmain_regisclub_input.setError("Club?");
+                mmain_regisclub_input.requestFocus();
+                return true;
             }
-        };
-    }
+            return false;
+        }
+
+    @Override
+    public void onClick(View v) {
+        String nom = mmain_regisnameplayer_input.getText().toString().trim();
+        String prenom = mmain_regisurname_input.getText().toString().trim();
+        String club = mmain_regisclub_input.getText().toString().trim();
+        String categorie = mmain_regiscateg_input.getText().toString().trim();
+        String telephone= mmain_registel_input.getText().toString().trim();
+
+
+        if (!validateInputs(nom,prenom,club)) {
+
+            CollectionReference dbMembres = db.collection("membres");
+
+            Membre membre = new Membre(nom,prenom,club,categorie,telephone);
+
+            dbMembres.add(membre)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(RegisterActivity.this, "Product Added", Toast.LENGTH_LONG).show();
+
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(RegisterActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+        }
 
 
     }
+}
 
 
 
