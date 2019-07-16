@@ -104,28 +104,6 @@ public class Membre {
 
     }
 
-    private void updateUIWhenCreating(){
-
-        if (this.getCurrentUser() != null){
-
-
-
-
-            // 7 - Get data from Firestore (isCoach & Username)
-            UserHelper.getMembre(this.getCurrentUser().getUid()).addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                @Override
-                public void onSuccess(DocumentSnapshot documentSnapshot) {
-                    User currentUser = documentSnapshot.toObject(User.class);
-                    String nom = TextUtils.isEmpty(currentUser.getNom()) ? getString(R.string.info_no_username_found) : currentUser.getNom();
-
-                    nom_user.setText(nom);
-                }
-            });
-        }
-    }
-
-
-
 }
 
 

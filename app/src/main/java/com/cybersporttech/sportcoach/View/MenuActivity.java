@@ -3,26 +3,35 @@ package com.cybersporttech.sportcoach.View;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 
-
+import com.cybersporttech.sportcoach.API.UserHelper;
 import com.cybersporttech.sportcoach.R;
+import com.cybersporttech.sportcoach.controller.BaseActivity;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.auth.User;
 
 
-
-public class MenuActivity extends AppCompatActivity {
+public class MenuActivity extends BaseActivity {
 
 
     private TextView mSportCoach;
     private EditText memail_user;
-    private EditText nom_user;
+    private EditText mclub_user;
+    private EditText mcategorie_user;
+    private EditText mtelephone_user;
     private Button mdeconnexion;
+    private RadioButton update_btn;
+    private RadioButton delete_btn;
     private Button mConsulterUneConvocation;
     private Button mCreerUneConvocation;
     private Button mEnregistrerUnMembre;
@@ -37,19 +46,38 @@ public class MenuActivity extends AppCompatActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        this.updateUIWhenCreating();
 
 
 
         mSportCoach = findViewById(R.id.activity_nom_appli_text) ;
-        memail_user = findViewById(R.id.email_user);
-        nom_user = findViewById(R.id.nom_user);
-        mdeconnexion = findViewById(R.id.deconnexion_bton);
+        memail_user = findViewById(R.id.email_user_txt);
+        mclub_user = findViewById(R.id.club_user_txt);
+        mcategorie_user = findViewById(R.id.categorie_user_txt);
+        mtelephone_user = findViewById(R.id.telephone_user_txt);
+        mdeconnexion = findViewById(R.id.deconnexion_btn);
+        update_btn = findViewById(R.id.update_btn);
+        delete_btn = findViewById(R.id.delete_btn);
         mConsulterUneConvocation = findViewById(R.id.activity_consult_convocation_btn);
         mCreerUneConvocation = findViewById(R.id.activity_creation_convocation_btn);
         mEnregistrerUnMembre = findViewById(R.id.activity_register_member_btn);
 
         memail_user.setText(getIntent().getExtras().getString("data"));
 
+
+        update_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               //gérer le update ici page 5/chap1
+
+            }
+        });
+        delete_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //gérer le delete
+            }
+        });
 
 
         mEnregistrerUnMembre.setOnClickListener(new View.OnClickListener() {
@@ -112,6 +140,12 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
+    }
+    private void updateUIWhenCreating(){
+        if (this.getCurrentUser() != null){
+            String email = this.getCurrentUser().getEmail();
+            this.memail_user.setText(email);
+        }
     }
 
 }

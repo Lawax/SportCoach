@@ -9,7 +9,7 @@
         android:id="@+id/activity_main_appName_input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4065A4"
+        android:background="#51C57F"
         android:gravity="center"
         android:padding="20dp"
         android:text="Sport Coach"
@@ -88,7 +88,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="30dp"
-        android:background="#4065A4"
+        android:background="#51C57F"
         android:hint="Enregistrer un joueur"
         android:textColor="#FFFFFF"
         android:textStyle="bold" />
@@ -101,7 +101,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="50dp"
-        android:background="#4065A4"
+        android:background="#51C57F"
         android:hint="Enregistrer un entraîneur"
         android:textColor="#FFFFFF" />
 

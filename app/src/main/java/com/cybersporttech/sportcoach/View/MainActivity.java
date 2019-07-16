@@ -15,14 +15,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.cybersporttech.sportcoach.R;
+import com.cybersporttech.sportcoach.controller.BaseActivity;
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private TextView mGreetingText;
     private ProgressBar mProgressBar;
@@ -108,6 +111,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,5 +125,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
     }
+
 }
 

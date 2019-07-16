@@ -1,10 +1,13 @@
 package com.cybersporttech.sportcoach.View;
 
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,14 +22,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import com.cybersporttech.sportcoach.R;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class RegisterActivity extends AppCompatActivity {
 
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("message");
+    // Realtime db FirebaseDatabase database = FirebaseDatabase.getInstance();
+    //Realtime db DatabaseReference myRef = database.getReference("message");
 
 
     private EditText mmain_regismail_input;
@@ -38,11 +46,15 @@ public class RegisterActivity extends AppCompatActivity {
     private Button mmain_regisplayer_btn;
     private Button mmain_regiscoach_btn;
 
+
+    FirebaseFirestore db = FirebaseFirestore.getInstance();
+
     // Creating identifier to identify REST REQUEST (Update username)
     private static final int UPDATE_USERNAME = 30;
 
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
+
 
 
     @Override
@@ -58,20 +70,62 @@ public class RegisterActivity extends AppCompatActivity {
         mmain_regisplayer_btn = findViewById(R.id.activity_main_regisplayer_btn);
         mmain_regiscoach_btn = findViewById(R.id.activity_main_regiscoach_btn);
 
-
-        mmain_regismail_input.setText(getIntent().getExtras().getString("data"));
+        //mmain_regismail_input.setText(getIntent().getExtras().getString("data"));
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        //setMessage();
+
+        //ajout test
+        Map<String,Object> newMembre = new HashMap<>();
+        newMembre.put ("Coachs", "");
+
+        db.collection("membre").document("1")
+                .set(newMembre)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(RegisterActivity.this,"Enregistré", Toast.LENGTH_SHORT);
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Log.d("Error",e.getMessage());
+                    }
+                });
+
+        mmain_regisnameplayer_input.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+            }
+        });
+
 
 
 // Ensuite PAR LE BIAIS du bouton d'enregistement en bas d'un membre, il faudra placer le set message pour enregistrer dans la BDD
 
+        mmain_regisplayer_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                finish();
+                Intent myIntent = new Intent(RegisterActivity.this, MenuActivity.class);
+                startActivity(myIntent);
+            }
+        });
 
     }
     public void setMessage (){
-        String str = mmain_regismail_input.getText().toString().trim();
-        myRef.setValue(str);
+
+        //String str = mmain_regisnameplayer_input.getText().toString().trim();
+       // myRef.setValue(str);
+
+
+
         /* zone de saisie destinée à être enregistrée dans la bdd sur Firebase */
 
     }
