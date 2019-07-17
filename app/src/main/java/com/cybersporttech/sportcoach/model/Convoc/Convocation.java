@@ -6,13 +6,13 @@ import java.util.Date;
 public class Convocation {
 
     private String club;
-    private int categorie;
+    private String categorie;
     private String lieu;
-    private Date date;
+    private String date;
     private String listjoueurs;
 
 
-    public Convocation(String club, int categorie, String lieu, Date date, String listjoueurs) {
+    public Convocation(String club, String categorie, String lieu, String date, String listjoueurs) {
         this.club = club;
         this.categorie = categorie;
         this.lieu = lieu;
@@ -28,11 +28,11 @@ public class Convocation {
         this.club = club;
     }
 
-    public int getCategorie() {
+    public String getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(int categorie) {
+    public void setCategorie(String categorie) {
         this.categorie = categorie;
     }
 
@@ -44,11 +44,11 @@ public class Convocation {
         this.lieu = lieu;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

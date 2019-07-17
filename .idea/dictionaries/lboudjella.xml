@@ -2,11 +2,14 @@
   <dictionary name="lboudjella">
     <words>
       <w>adresse</w>
+      <w>backmenu</w>
+      <w>bckmenu</w>
       <w>bouton</w>
       <w>caractère</w>
       <w>categ</w>
       <w>categorie</w>
       <w>ceci</w>
+      <w>coachs</w>
       <w>compte</w>
       <w>deconnecter</w>
       <w>destinée</w>
@@ -19,8 +22,10 @@
       <w>firebase</w>
       <w>heure</w>
       <w>ident</w>
+      <w>joueur</w>
       <w>joueurs</w>
       <w>liste</w>
+      <w>listjoueurs</w>
       <w>membre</w>
       <w>membres</w>
       <w>nomde</w>

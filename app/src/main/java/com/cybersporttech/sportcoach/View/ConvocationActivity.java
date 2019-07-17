@@ -1,14 +1,27 @@
 package com.cybersporttech.sportcoach.View;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.cybersporttech.sportcoach.R;
+import com.cybersporttech.sportcoach.model.Convoc.Convocation;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
-public class ConvocationActivity extends AppCompatActivity {
+import java.util.Date;
+
+public class ConvocationActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     private EditText mNomdeClub;
@@ -17,6 +30,11 @@ public class ConvocationActivity extends AppCompatActivity {
     private EditText mDate;
     private EditText mListJoueurs;
     private Button mValidation;
+    private Button mmain_back_menu_btn;
+
+    FirebaseAuth mFirebaseAuth;
+    FirebaseUser mFirebaseUser;
+    private FirebaseFirestore db;
 
 
     @Override
@@ -30,6 +48,13 @@ public class ConvocationActivity extends AppCompatActivity {
         mDate = findViewById(R.id.date_txt);
         mListJoueurs = findViewById(R.id.ListeJoueurs_txt);
         mValidation = findViewById(R.id.Validation_btn);
+        mmain_back_menu_btn = findViewById(R.id.back_menu_btn);
+
+        findViewById(R.id.Validation_btn).setOnClickListener(this);
+
+        db = FirebaseFirestore.getInstance();
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
 
 
 
@@ -39,47 +64,90 @@ public class ConvocationActivity extends AppCompatActivity {
                 //interaction with db by php
             }
         });
-    }
+
+        mmain_back_menu_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                Intent bckmenu = new Intent(ConvocationActivity.this, MenuActivity.class);
+                startActivity(bckmenu);
+            }
+        });
 
 
-    public EditText getmNomdeClub() {
-        return mNomdeClub;
+
     }
 
-    public void setmNomdeClub(EditText mNomdeClub) {
-        this.mNomdeClub = mNomdeClub;
+    private boolean validateInputs(String club, String categorie, String lieu,String date,String listjoueurs) {
+
+        if (club.isEmpty()) {
+            mNomdeClub.setError("Club?");
+            mNomdeClub.requestFocus();
+            return true;
+        }
+
+        if (categorie.isEmpty()) {
+            mCategNumEquipe.setError("categorie?");
+            mCategNumEquipe.requestFocus();
+            return true;
+        }
+
+        if (lieu.isEmpty()) {
+            mLieu.setError("Lieu?");
+            mLieu.requestFocus();
+            return true;
+        }
+        if (date.isEmpty()) {
+            mDate.setError("Date?");
+            mDate.requestFocus();
+            return true;
+        }
+
+        if (listjoueurs.isEmpty()) {
+            mListJoueurs.setError("Liste des joueurs?");
+            mListJoueurs.requestFocus();
+            return true;
+
+        }
+        return false;
     }
 
-    public EditText getmCategNumEquipe() {
-        return mCategNumEquipe;
-    }
+    @Override
+    public void onClick(View v) {
+        String club = mNomdeClub.getText().toString().trim();
+        String categorie = mCategNumEquipe.getText().toString().trim();
+        String lieu = mLieu.getText().toString().trim();
+        String date = mDate.getText().toString().trim();
+        String listjoueurs= mListJoueurs.getText().toString().trim();
 
-    public void setmCategNumEquipe(EditText mCategNumEquipe) {
-        this.mCategNumEquipe = mCategNumEquipe;
-    }
-    public EditText getmLieu() {
-        return mLieu;
-    }
 
-    public void setmLieu(EditText mLieu) {
-        this.mLieu = mLieu;
-    }
 
-    public EditText getmDate() {
-        return mDate;
-    }
+        if (!validateInputs(club,categorie,lieu,date,listjoueurs)) {
 
-    public void setmDate(EditText mDate) {
-        this.mDate = mDate;
-    }
+            CollectionReference dbConvocations = db.collection("convocations");
 
-    public EditText getmListJoueurs() {
-        return mListJoueurs;
-    }
+            Convocation convocation = new Convocation(club,categorie,lieu,date,listjoueurs);
 
-    public void setmListJoueurs(EditText mListJoueurs) {
-        this.mListJoueurs = mListJoueurs;
-    }
+            dbConvocations.add(convocation)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Toast.makeText(ConvocationActivity.this, "Product Added", Toast.LENGTH_LONG).show();
 
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(ConvocationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+
+
+        }
+
+
+
+    }
 }
 

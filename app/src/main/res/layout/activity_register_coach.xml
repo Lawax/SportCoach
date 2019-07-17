@@ -80,17 +80,16 @@
         android:hint="Entrez votre email"/>
 
     <Button
-        android:id="@+id/activity_main_regisplayer_btn"
+        android:id="@+id/activity_main_regiscoach_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="50dp"
         android:background="#51C57F"
-        android:hint="Enregistrer un joueur"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold" />
+        android:hint="Enregistrement entraîneur"
+        android:textColor="#FFFFFF" />
 
     <Button
         android:id="@+id/back_menu_btn"
@@ -100,3 +99,4 @@
         android:text="Retour Menu" />
 
 </LinearLayout>
+

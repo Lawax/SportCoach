@@ -34,7 +34,8 @@ public class MenuActivity extends BaseActivity {
     private RadioButton delete_btn;
     private Button mConsulterUneConvocation;
     private Button mCreerUneConvocation;
-    private Button mEnregistrerUnMembre;
+    private Button mEnregistrerUnCoach;
+    private Button mEnregistrerUnJoueur;
 
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
@@ -60,7 +61,8 @@ public class MenuActivity extends BaseActivity {
         delete_btn = findViewById(R.id.delete_btn);
         mConsulterUneConvocation = findViewById(R.id.activity_consult_convocation_btn);
         mCreerUneConvocation = findViewById(R.id.activity_creation_convocation_btn);
-        mEnregistrerUnMembre = findViewById(R.id.activity_register_member_btn);
+        mEnregistrerUnCoach = findViewById(R.id.activity_register_coach_btn);
+        mEnregistrerUnJoueur = findViewById(R.id.activity_register_player_btn);
 
         memail_user.setText(getIntent().getExtras().getString("data"));
 
@@ -79,24 +81,6 @@ public class MenuActivity extends BaseActivity {
             }
         });
 
-
-        mEnregistrerUnMembre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent registerActivity = new Intent(MenuActivity.this, RegisterActivity.class);
-                startActivity(registerActivity);
-            }
-
-        });
-        mEnregistrerUnMembre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MenuActivity.this,RegisterActivity.class);
-                myIntent.putExtra ("data",memail_user.getText().toString());
-                startActivity(myIntent);
-                // passing data to Register activity
-            }
-        });
         mConsulterUneConvocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +120,23 @@ public class MenuActivity extends BaseActivity {
             }
         });
 
+        mEnregistrerUnCoach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerCoach = new Intent(MenuActivity.this, RegisterCoach.class);
+                startActivity(registerCoach);
+            }
 
+        });
+
+        mEnregistrerUnJoueur.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent registerJoueur = new Intent(MenuActivity.this, RegisterActivity.class);
+                startActivity(registerJoueur);
+
+            }
+        });
 
 
 

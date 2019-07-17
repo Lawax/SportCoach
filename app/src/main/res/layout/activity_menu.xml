@@ -21,9 +21,9 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#85929E"
         android:text="Connecté en tant que :"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textColor="#85929E" />
 
     <EditText
         android:id="@+id/email_user_txt"
@@ -36,11 +36,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center" />
+
     <EditText
         android:id="@+id/categorie_user_txt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center" />
+
     <EditText
         android:id="@+id/telephone_user_txt"
         android:layout_width="match_parent"
@@ -50,7 +52,7 @@
     <Button
         android:id="@+id/deconnexion_btn"
         android:layout_width="match_parent"
-        android:layout_height="69dp"
+        android:layout_height="wrap_content"
         android:layout_weight="3"
         android:text="Déconnexion" />
 
@@ -60,21 +62,21 @@
         android:layout_width="wrap_content"
         android:layout_height="52dp"
         android:layout_weight="3"
-        android:textColor="#85929E"
-        android:text="Mettre à jour mes coordonnées" />
+        android:text="Mettre à jour mes coordonnées"
+        android:textColor="#85929E" />
 
     <RadioButton
         android:id="@+id/delete_btn"
         android:layout_width="wrap_content"
         android:layout_height="57dp"
         android:layout_weight="3"
-        android:textColor="#85929E"
-        android:text="Supprimer mon profil" />
+        android:text="Supprimer mon profil"
+        android:textColor="#85929E" />
 
     <Button
         android:id="@+id/activity_consult_convocation_btn"
         android:layout_width="match_parent"
-        android:layout_height="89dp"
+        android:layout_height="60dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@android:color/white"
@@ -85,7 +87,7 @@
     <Button
         android:id="@+id/activity_creation_convocation_btn"
         android:layout_width="match_parent"
-        android:layout_height="93dp"
+        android:layout_height="65dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@android:color/white"
@@ -94,13 +96,24 @@
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/activity_register_member_btn"
+        android:id="@+id/activity_register_coach_btn"
         android:layout_width="match_parent"
-        android:layout_height="95dp"
+        android:layout_height="62dp"
         android:layout_margin="5dp"
         android:layout_weight="1"
         android:background="@android:color/white"
-        android:text="enregistrer un membre"
+        android:text="enregistrer un coach"
+        android:textColor="#85929E"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/activity_register_player_btn"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:text="enregistrer un joueur"
         android:textColor="#85929E"
         android:textSize="20sp" />
 

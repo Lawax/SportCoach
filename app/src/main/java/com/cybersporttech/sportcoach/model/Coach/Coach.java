@@ -1,34 +1,25 @@
-package com.cybersporttech.sportcoach.model.Member;
+package com.cybersporttech.sportcoach.model.Coach;
 
-
-public class Membre {
-
-
-
+public class Coach {
 
     private String nom;
     private String prenom;
     private String club;
     private String categorie;
     private String telephone;
+    private String email;
 
 
 
-
-
-
-
-
-
-
-
-    public Membre(String nom, String prenom, String club, String categorie, String telephone) {
+    public Coach(String nom, String prenom, String club, String categorie, String telephone, String email) {
 
         this.nom = nom;
         this.prenom = prenom;
         this.club = club;
         this.categorie = categorie;
         this.telephone = telephone;
+        this.email= email;
+
 
     }
 
@@ -71,11 +62,15 @@ public class Membre {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
-
-
-    public void lireUneConvocation (){
-
+    public String getEmail() {
+        return email;
     }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+
 
 }
 

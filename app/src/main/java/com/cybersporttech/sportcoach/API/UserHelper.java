@@ -1,6 +1,6 @@
 package com.cybersporttech.sportcoach.API;
 
-import com.cybersporttech.sportcoach.model.Member.Membre;
+
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
