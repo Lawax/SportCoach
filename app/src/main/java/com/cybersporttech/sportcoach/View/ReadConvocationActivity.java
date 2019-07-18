@@ -2,77 +2,79 @@ package com.cybersporttech.sportcoach.View;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.widget.EditText;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
 import com.cybersporttech.sportcoach.R;
+import com.cybersporttech.sportcoach.controller.ConvocationAdapter;
+import com.cybersporttech.sportcoach.model.Convoc.Convocation;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.auth.User;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class ReadConvocationActivity extends AppCompatActivity {
 
 
-    private TextView nomDeClubResp;
-    private TextView categorieResp;
-    private TextView lieuResp;
-    private TextView dateHeureResp;
-    private TextView listeJoueursResp;
+    private RecyclerView recyclerView;
+    private ConvocationAdapter adapter;
+    private List<Convocation> convocationList;
+    private ProgressBar progressBar;
+
+    private FirebaseFirestore db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read_convocation);
 
-        nomDeClubResp = findViewById(R.id.nomduClub_txtR);
-        categorieResp = findViewById(R.id.categories_txtR);
-        lieuResp = findViewById(R.id.lieu_txtR);
-        dateHeureResp = findViewById(R.id.date_txtR);
-        listeJoueursResp = findViewById(R.id.ListeJoueurs_txtR);
-    }
+        progressBar = findViewById(R.id.activity_convo_bar);
 
-    public TextView getNomDeClubResp() {
-        return nomDeClubResp;
-    }
+        recyclerView = findViewById(R.id.recyclerview_convocation);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-    public void setNomDeClubResp(TextView nomDeClubResp) {
-        this.nomDeClubResp = nomDeClubResp;
-    }
+        convocationList = new ArrayList<>();
+        adapter = new ConvocationAdapter(this, convocationList);
 
-    public TextView getCategorieResp() {
-        return categorieResp;
-    }
+        recyclerView.setAdapter(adapter);
 
-    public void setCategorieResp(TextView categorieResp) {
-        this.categorieResp = categorieResp;
-    }
+        db = FirebaseFirestore.getInstance();
 
-    public TextView getLieuResp() {
-        return lieuResp;
-    }
+        db.collection("convocations").get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
 
-    public void setLieuResp(TextView lieuResp) {
-        this.lieuResp = lieuResp;
-    }
+                        progressBar.setVisibility(View.GONE);
 
-    public TextView getDateHeureResp() {
-        return dateHeureResp;
-    }
+                        if(!queryDocumentSnapshots.isEmpty()){
 
-    public void setDateHeureResp(TextView dateHeureResp) {
-        this.dateHeureResp = dateHeureResp;
-    }
+                            List<DocumentSnapshot> list = queryDocumentSnapshots.getDocuments();
 
-    public TextView getListeJoueursResp() {
-        return listeJoueursResp;
-    }
+                            for(DocumentSnapshot d : list){
 
-    public void setListeJoueursResp(TextView listeJoueursResp) {
-        this.listeJoueursResp = listeJoueursResp;
-    }
+                                Convocation c = d.toObject(Convocation.class);
+                                convocationList.add(c);
 
+                            }
+
+                            adapter.notifyDataSetChanged();
+
+                        }
+
+
+                    }
+                });
+
+    }
 }
 

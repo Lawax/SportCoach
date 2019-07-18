@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -16,57 +16,22 @@
         android:textColor="#FFFFFF"
         android:textSize="25sp"
         android:textStyle="bold"
-        tools:text="Convocation">
-    </TextView>
-    <TextView
-        android:id="@+id/nomduClub_txtR"
+        tools:text="Convocation"></TextView>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview_convocation"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Nom de club"
-        />
+        android:layout_height="547dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp" />
 
-    <TextView
-        android:id="@+id/categories_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Categorie et numéro d'équipe" />
+    <ProgressBar
+        android:id="@+id/activity_convo_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="100dp"
+        android:layout_gravity="end"/>
 
-    <TextView
-        android:id="@+id/lieu_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Lieu" />
-
-    <TextView
-        android:id="@+id/date_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Date et heure" />
-
-    <TextView
-        android:id="@+id/ListeJoueurs_txtR"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_weight="3"
-        android:ems="10"
-        android:hint="Liste des joueurs"/>
-
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="94dp"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:autoSizeTextType="uniform"
-        android:ems="20"
-        android:text="Que les meilleurs gagnent!" />
-
-</LinearLayout>
+</RelativeLayout>

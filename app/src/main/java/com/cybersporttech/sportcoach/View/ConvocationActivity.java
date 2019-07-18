@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.cybersporttech.sportcoach.R;
 import com.cybersporttech.sportcoach.model.Convoc.Convocation;
@@ -31,6 +32,7 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
     private EditText mListJoueurs;
     private Button mValidation;
     private Button mmain_back_menu_btn;
+    private ProgressBar progressBar;
 
     FirebaseAuth mFirebaseAuth;
     FirebaseUser mFirebaseUser;
@@ -51,28 +53,11 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
         mmain_back_menu_btn = findViewById(R.id.back_menu_btn);
 
         findViewById(R.id.Validation_btn).setOnClickListener(this);
+        findViewById(R.id.activity_consult_convocation_btn).setOnClickListener(this);
 
         db = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-
-
-
-        mValidation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //interaction with db by php
-            }
-        });
-
-        mmain_back_menu_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                Intent bckmenu = new Intent(ConvocationActivity.this, MenuActivity.class);
-                startActivity(bckmenu);
-            }
-        });
 
 
 
@@ -112,8 +97,7 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
         return false;
     }
 
-    @Override
-    public void onClick(View v) {
+
         String club = mNomdeClub.getText().toString().trim();
         String categorie = mCategNumEquipe.getText().toString().trim();
         String lieu = mLieu.getText().toString().trim();
@@ -121,33 +105,60 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
         String listjoueurs= mListJoueurs.getText().toString().trim();
 
 
+        private void saveConvocation() {
+            String categorie = mCategNumEquipe.getText().toString().trim();
+            String lieu = mLieu.getText().toString().trim();
+            String date = mDate.getText().toString().trim();
+            String listjoueurs = mListJoueurs.getText().toString().trim();
 
-        if (!validateInputs(club,categorie,lieu,date,listjoueurs)) {
 
-            CollectionReference dbConvocations = db.collection("convocations");
+            if (!validateInputs(club, categorie, lieu, date, listjoueurs)) {
 
-            Convocation convocation = new Convocation(club,categorie,lieu,date,listjoueurs);
+                CollectionReference dbConvocations = db.collection("convocations");
 
-            dbConvocations.add(convocation)
-                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                        @Override
-                        public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(ConvocationActivity.this, "Product Added", Toast.LENGTH_LONG).show();
+                Convocation convocation = new Convocation(club, categorie, lieu, date, listjoueurs);
 
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(ConvocationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    });
+                dbConvocations.add(convocation)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
+                                Toast.makeText(ConvocationActivity.this, "Product Added", Toast.LENGTH_LONG).show();
 
+                            }
+                        })
+                        .addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                Toast.makeText(ConvocationActivity.this, e.getMessage(), Toast.LENGTH_LONG).show();
+
+                            }
+                        });
+            }
+        }
+        @Override
+        public void onClick(View v) {
+
+        switch(v.getId()) {
+            case R.id.Validation_btn:
+                saveConvocation();
+                break;
+            case R.id.activity_consult_convocation_btn:
+                startActivity(new Intent(this, ReadConvocationActivity.class));
+                break;
+        }
+
+                mmain_back_menu_btn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        finish();
+                        Intent bckmenu = new Intent(ConvocationActivity.this, MenuActivity.class);
+                        startActivity(bckmenu);
+                    }
+                });
+
+
+            }
 
         }
 
-
-
-    }
-}
 
