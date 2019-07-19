@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 
 import com.cybersporttech.sportcoach.R;
@@ -41,6 +40,8 @@ public class ReadConvocationActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recyclerview_convocation);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
 
         convocationList = new ArrayList<>();
         adapter = new ConvocationAdapter(this, convocationList);

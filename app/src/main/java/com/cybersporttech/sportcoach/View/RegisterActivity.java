@@ -150,7 +150,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(RegisterActivity.this, "Product Added", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this, "Joueur inscrit", Toast.LENGTH_LONG).show();
 
                         }
                     })

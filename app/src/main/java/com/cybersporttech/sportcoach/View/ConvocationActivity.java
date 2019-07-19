@@ -53,7 +53,9 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
         mmain_back_menu_btn = findViewById(R.id.back_menu_btn);
 
         findViewById(R.id.Validation_btn).setOnClickListener(this);
-        findViewById(R.id.activity_consult_convocation_btn).setOnClickListener(this);
+        findViewById(R.id.back_menu_btn).setOnClickListener(this);
+
+
 
         db = FirebaseFirestore.getInstance();
         mFirebaseAuth = FirebaseAuth.getInstance();
@@ -98,14 +100,9 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
     }
 
 
-        String club = mNomdeClub.getText().toString().trim();
-        String categorie = mCategNumEquipe.getText().toString().trim();
-        String lieu = mLieu.getText().toString().trim();
-        String date = mDate.getText().toString().trim();
-        String listjoueurs= mListJoueurs.getText().toString().trim();
-
 
         private void saveConvocation() {
+            String club = mNomdeClub.getText().toString().trim();
             String categorie = mCategNumEquipe.getText().toString().trim();
             String lieu = mLieu.getText().toString().trim();
             String date = mDate.getText().toString().trim();
@@ -122,7 +119,7 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-                                Toast.makeText(ConvocationActivity.this, "Product Added", Toast.LENGTH_LONG).show();
+                                Toast.makeText(ConvocationActivity.this, "Convocation ajoutée", Toast.LENGTH_LONG).show();
 
                             }
                         })
@@ -142,23 +139,14 @@ public class ConvocationActivity extends AppCompatActivity implements View.OnCli
             case R.id.Validation_btn:
                 saveConvocation();
                 break;
-            case R.id.activity_consult_convocation_btn:
-                startActivity(new Intent(this, ReadConvocationActivity.class));
+            case R.id.back_menu_btn:
+                startActivity(new Intent(this, MenuActivity.class));
                 break;
         }
 
-                mmain_back_menu_btn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        finish();
-                        Intent bckmenu = new Intent(ConvocationActivity.this, MenuActivity.class);
-                        startActivity(bckmenu);
-                    }
-                });
 
+    }
 
-            }
-
-        }
+}
 
 

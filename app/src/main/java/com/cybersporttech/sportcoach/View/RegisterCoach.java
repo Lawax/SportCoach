@@ -129,7 +129,7 @@ public class RegisterCoach extends AppCompatActivity implements View.OnClickList
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
-                            Toast.makeText(RegisterCoach.this, "Product Added", Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterCoach.this, "Coach inscrit", Toast.LENGTH_LONG).show();
 
                         }
                     })

@@ -2,6 +2,7 @@
   <dictionary name="lboudjella">
     <words>
       <w>adresse</w>
+      <w>ajoutée</w>
       <w>backmenu</w>
       <w>bckmenu</w>
       <w>bouton</w>
@@ -22,6 +23,8 @@
       <w>firebase</w>
       <w>heure</w>
       <w>ident</w>
+      <w>inscrit</w>
+      <w>intentconsult</w>
       <w>joueur</w>
       <w>joueurs</w>
       <w>liste</w>

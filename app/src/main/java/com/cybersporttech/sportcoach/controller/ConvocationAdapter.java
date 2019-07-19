@@ -30,6 +30,8 @@ public class ConvocationAdapter extends RecyclerView.Adapter<ConvocationAdapter.
         return new ConvocationViewHolder (LayoutInflater.from(mCtx).inflate(R.layout.activity_convocation, parent, false));
     }
 
+    // binding parameters of the convocation
+
     @Override
     public void onBindViewHolder(@NonNull ConvocationViewHolder holder, int position) {
         Convocation convocation = convocationList.get(position);
@@ -45,6 +47,10 @@ public class ConvocationAdapter extends RecyclerView.Adapter<ConvocationAdapter.
     public int getItemCount() {
         return convocationList .size();
     }
+
+
+// class recycler parameters definition
+
 
     class ConvocationViewHolder extends RecyclerView.ViewHolder {
 

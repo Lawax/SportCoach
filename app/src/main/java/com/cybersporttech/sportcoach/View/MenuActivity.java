@@ -13,7 +13,6 @@ import android.widget.TextView;
 
 
 import com.cybersporttech.sportcoach.R;
-import com.cybersporttech.sportcoach.controller.BaseActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -21,7 +20,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.auth.User;
 
 
-public class MenuActivity extends BaseActivity {
+public class MenuActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     private TextView mSportCoach;
@@ -47,7 +46,7 @@ public class MenuActivity extends BaseActivity {
 
         mFirebaseAuth = FirebaseAuth.getInstance();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        this.updateUIWhenCreating();
+
 
 
 
@@ -64,7 +63,7 @@ public class MenuActivity extends BaseActivity {
         mEnregistrerUnCoach = findViewById(R.id.activity_register_coach_btn);
         mEnregistrerUnJoueur = findViewById(R.id.activity_register_player_btn);
 
-        memail_user.setText(getIntent().getExtras().getString("data"));
+        //memail_user.setText(getIntent().getExtras().getString("data"));
 
 
         update_btn.setOnClickListener(new View.OnClickListener() {
@@ -81,13 +80,16 @@ public class MenuActivity extends BaseActivity {
             }
         });
 
+
+
         mConsulterUneConvocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent myIntent= new Intent(MenuActivity.this, ReadConvocationActivity.class);
-                startActivity (myIntent);
+                Intent intentconsult = new Intent (MenuActivity.this,ReadConvocationActivity.class);
+                startActivity(intentconsult);
             }
         });
+
 
         mCreerUneConvocation.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,12 +142,12 @@ public class MenuActivity extends BaseActivity {
 
 
 
-    }
-    private void updateUIWhenCreating(){
-        if (this.getCurrentUser() != null){
-            String email = this.getCurrentUser().getEmail();
-            this.memail_user.setText(email);
-        }
+
+
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -15,17 +15,14 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.cybersporttech.sportcoach.R;
-import com.cybersporttech.sportcoach.controller.BaseActivity;
-import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 
-public class MainActivity extends BaseActivity {
+
+public class MainActivity extends AppCompatActivity {
 
     private TextView mGreetingText;
     private ProgressBar mProgressBar;
@@ -50,6 +47,8 @@ public class MainActivity extends BaseActivity {
         mConnexionButton = findViewById(R.id.activity_main_connexion_btn);
         firebaseAuth = FirebaseAuth.getInstance();
         mRegisterButton.setEnabled(false);
+
+
 
 
         mEmailInput.addTextChangedListener(new TextWatcher() {
@@ -87,31 +86,11 @@ public class MainActivity extends BaseActivity {
                     }
 
                 });
+                //connexion to firebase
 
 
-               /*{
-                   Intent registerActivity = new Intent(MainActivity.this, RegisterActivity.class);
-                   startActivity(registerActivity);
-                   //Register activity access button
-
-                }
-                    /*Intent myIntent = new Intent(MainActivity.this, RegisterActivity.class);
-                    myIntent.putExtra ("data",mEmailInput.getText().toString());
-                    startActivity(myIntent);
-                    // passing data to register activity
             }
         });
-
-        mConnexionButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent menuActivity = new Intent(MainActivity.this, MenuActivity.class);
-                startActivity(menuActivity);
-                //Menu activity access button*/
-            }
-        });
-
-
 
         mConnexionButton.setOnClickListener(new View.OnClickListener() {
             @Override

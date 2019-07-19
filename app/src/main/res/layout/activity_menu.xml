@@ -8,8 +8,8 @@
     <TextView
         android:id="@+id/activity_nom_appli_text"
         android:layout_width="430dp"
-        android:layout_height="122dp"
-        android:layout_weight="3"
+        android:layout_height="100dp"
+        android:layout_weight="2"
         android:background="#51C57F"
         android:gravity="center"
         android:text="SPORT COACH"
@@ -53,7 +53,7 @@
         android:id="@+id/deconnexion_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:text="Déconnexion" />
 
 
