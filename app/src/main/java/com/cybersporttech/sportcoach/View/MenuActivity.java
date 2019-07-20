@@ -63,25 +63,25 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         mEnregistrerUnCoach = findViewById(R.id.activity_register_coach_btn);
         mEnregistrerUnJoueur = findViewById(R.id.activity_register_player_btn);
 
-        //memail_user.setText(getIntent().getExtras().getString("data"));
+
 
 
         update_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //gérer le update ici page 5/chap1
+               //gérer le update, amélioration à apporter
 
             }
         });
         delete_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //gérer le delete
+                //gérer le delete amélioration à apporter
             }
         });
 
-
-
+        //amélioration ajout d'une cardview sur registerActivity et registerCoach pour catcher les données
+        // et les récupérer dans le menu via le recyclerview
         mConsulterUneConvocation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,10 +139,6 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
             }
         });
-
-
-
-
 
     }
 

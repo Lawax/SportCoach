@@ -96,9 +96,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent myIntent = new Intent(MainActivity.this, MenuActivity.class);
-                myIntent.putExtra ("data",mEmailInput.getText().toString());
                 startActivity(myIntent);
-                // passing data to Menu activity
+
             }
 
         });

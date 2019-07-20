@@ -83,13 +83,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
-        android:hint="Valider"/>
+        android:hint="Valider" />
 
     <Button
         android:id="@+id/back_menu_btn"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="59dp"
         android:background="#51C57F"
         android:text="Retour Menu" />
 
